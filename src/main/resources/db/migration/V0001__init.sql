@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS ticket (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  userName VARCHAR(45) NULL,
+  issue VARCHAR(45) NULL,
+  description VARCHAR(1000) NULL
+  );
