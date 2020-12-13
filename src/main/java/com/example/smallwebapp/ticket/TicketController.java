@@ -13,11 +13,12 @@ import java.net.URI;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("ticket")
+@CrossOrigin("http://localhost:3000")
 public class TicketController {
     private final TicketService ticketService;
 
     @GetMapping
-    public Page<TicketDTO> ticketLists(@PageableDefault(size = 10) Pageable pageable,
+    public Page<TicketDTO> ticketLists(@PageableDefault() Pageable pageable,
                                        @RequestParam(name = "username", required = false) String userName) {
         if (userName == null) {
             var page = ticketService.findTickets(pageable);
