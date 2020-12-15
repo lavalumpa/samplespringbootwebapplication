@@ -42,7 +42,7 @@ public class TicketControllerTest {
         var ticket = createTicket();
         ticketRepository.save(ticket);
         var id = ticketRepository.findAll().get(0).getId();
-        mockMvc.perform(get("/ticket").param("username","user"))
+        mockMvc.perform(get("/ticket").param("username", "user"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.content[0].id").value(id))
                 .andExpect(jsonPath("$.content[0].name").value("user"))
@@ -77,11 +77,11 @@ public class TicketControllerTest {
 
 
     @Test
-    public void testTicketDeleteById() throws Exception{
-        var ticket= createTicket();
+    public void testTicketDeleteById() throws Exception {
+        var ticket = createTicket();
         ticketRepository.save(ticket);
-        var id= ticketRepository.findAll().get(0).getId();
-        mockMvc.perform(delete("/ticket/{id}",id))
+        var id = ticketRepository.findAll().get(0).getId();
+        mockMvc.perform(delete("/ticket/{id}", id))
                 .andExpect(status().isNoContent());
     }
 
@@ -94,7 +94,7 @@ public class TicketControllerTest {
 
     }
 
-    private TicketDTO createTicketDTO(){
+    private TicketDTO createTicketDTO() {
         return TicketDTO.builder()
                 .name("user")
                 .issue("issue")

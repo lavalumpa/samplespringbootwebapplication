@@ -16,7 +16,7 @@ public class TicketService {
     }
 
     public Page<Ticket> findTicketsByUserName(String userName, Pageable pageable) {
-        return ticketRepository.findAllByUserName(userName,pageable);
+        return ticketRepository.findAllByUserName(userName, pageable);
     }
 
     public Ticket findTicketById(int id) {
